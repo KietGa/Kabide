@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Fang
+  m_EditorClassIdentifier: 
+  name: Fang
+  art: {fileID: 21300000, guid: 6f8c8148507e28849b71ab72745a9371, type: 3}
+  cost: 3
+  type:
+  - Troop
+  - Common
+  - Vanguard
+  - Arknights
+  effect: +300 DEF when played in second position
+  effectType: 00000000
+  effectCode: 72000000
+  args: 2c01000001000000
+  sargs:
+  - Fang
+  attack: 30
+  defense: 50

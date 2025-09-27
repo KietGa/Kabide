@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2862b78be353445bc2f2cdb55a8333, type: 3}
+  m_Name: Happy
+  m_EditorClassIdentifier: 
+  name: Happy
+  art: {fileID: 21300000, guid: 54dba108807660d4a9eb9ab5119ee981, type: 3}
+  cost: 2
+  type:
+  - Super
+  - Rare
+  - Meme
+  effect: Set your $ to 2x number of current stage
+  effectType: 01000000
+  effectCode: 0e000000
+  args: 
+  sargs: []
+  isUseOutside: 1

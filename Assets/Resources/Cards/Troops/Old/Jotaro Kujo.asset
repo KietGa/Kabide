@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Jotaro Kujo
+  m_EditorClassIdentifier: 
+  name: Jotaro Kujo
+  art: {fileID: 21300000, guid: cb6d239927b01ff43bc79a8107927620, type: 3}
+  cost: 10
+  type:
+  - Troop
+  - Rare
+  - Joestar
+  - Jojo
+  effect: 'x(Number of current Hands) ATK '
+  effectType: 00000000
+  effectCode: 43000000
+  args: 
+  sargs: []
+  counter: 0
+  attack: 60
+  defense: 60

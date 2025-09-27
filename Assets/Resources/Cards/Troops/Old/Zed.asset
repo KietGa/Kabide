@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Zed
+  m_EditorClassIdentifier: 
+  name: Zed
+  art: {fileID: 21300000, guid: 90675c2afa9118e49853c8eeb334e92e, type: 3}
+  cost: 6
+  type:
+  - Troop
+  - Rare
+  - Ionia
+  - LOL
+  effect: Spawn "Zed Shadow" in campfield if you don't have it in deck
+  effectType: 00000000
+  effectCode: 5c000000
+  args: 
+  sargs:
+  - Zed Shadow
+  attack: 300
+  defense: 60

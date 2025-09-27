@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5b08656dbf88143a168c77789e396a, type: 3}
+  m_Name: Headhunt
+  m_EditorClassIdentifier: 
+  name: Headhunt
+  art: {fileID: 21300000, guid: 995b4aabf77620d4fa7b841f9c389904, type: 3}
+  cost: 6
+  type:
+  - Gacha
+  - Uncommon
+  - Arknights
+  effect: 'Choose 1 of up to 2 "Arknights" card '
+  effectType: 00000000
+  effectCode: 02000000
+  args: 02000000
+  sargs:
+  - Arknights

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Tryndamere
+  m_EditorClassIdentifier: 
+  name: Tryndamere
+  art: {fileID: 21300000, guid: 7d958eafebd13c84bb8cb113fd85d77b, type: 3}
+  cost: 5
+  type:
+  - Troop
+  - Common
+  - Freljord
+  - LOL
+  effect: Always go back to Camp instead of Alter
+  effectType: 05000000
+  effectCode: 01000000
+  args: 
+  sargs:
+  - Tryndamere
+  attack: 80
+  defense: 80

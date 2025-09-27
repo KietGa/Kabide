@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Void
+  m_EditorClassIdentifier: 
+  name: Void
+  art: {fileID: 21300000, guid: eb4aba4fd92a4f64d8fc1331415d4f2b, type: 3}
+  cost: 9
+  type:
+  - Magic
+  - Uncommon
+  - Lucky
+  effect: x2 ATK for each non-effect card play in battlefield
+  effectType: 00000000
+  effectCode: 49000000
+  args: 02000000
+  sargs: []

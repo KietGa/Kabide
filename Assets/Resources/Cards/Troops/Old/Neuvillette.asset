@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Neuvillette
+  m_EditorClassIdentifier: 
+  name: Neuvillette
+  art: {fileID: 21300000, guid: ccb6be01aea835a48a7ebf48b2a11bc8, type: 3}
+  cost: 12
+  type:
+  - Troop
+  - Epic
+  - Hydro
+  - Fontaine
+  - Genshin
+  effect: x8 DEF if played in battlefield with "Furina"
+  effectType: 00000000
+  effectCode: 1e000000
+  args: 08000000
+  sargs:
+  - Furina
+  counter: 0
+  attack: 140
+  defense: 80

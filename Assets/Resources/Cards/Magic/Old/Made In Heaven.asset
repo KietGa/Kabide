@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Made In Heaven
+  m_EditorClassIdentifier: 
+  name: Made In Heaven
+  art: {fileID: 21300000, guid: 9633e81e6fb4d924597783924fbdc573, type: 3}
+  cost: 18
+  type:
+  - Magic
+  - Mythic
+  - Jojo
+  effect: x30 ATK but set your hand to 1
+  effectType: 0000000003000000
+  effectCode: 0100000007000000
+  args: 1e000000
+  sargs: []

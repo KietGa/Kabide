@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Lumine
+  m_EditorClassIdentifier: 
+  name: Lumine
+  art: {fileID: 21300000, guid: a15c1bbd08625a742b0510d05589d42d, type: 3}
+  cost: 6
+  type:
+  - Troop
+  - Common
+  - Genshin
+  effect: +50 ATK for each "Genshin" card in the deck
+  effectType: 00000000
+  effectCode: 0a000000
+  args: 32000000
+  sargs:
+  - Genshin
+  attack: 0
+  defense: 0

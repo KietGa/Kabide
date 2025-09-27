@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Neeko
+  m_EditorClassIdentifier: 
+  name: Neeko
+  art: {fileID: 21300000, guid: aea4896468b51034eb5cf3ea96a8b6f0, type: 3}
+  cost: 15
+  type:
+  - Troop
+  - Common
+  - Ixtal
+  - LOL
+  effect: Copies ability of "LOL" card to the right  (can't copy Discard type or
+    Destroy type effect)
+  effectType: 0000000006000000
+  effectCode: 3f00000002000000
+  args: 
+  sargs: []
+  counter: 0
+  attack: 40
+  defense: 40

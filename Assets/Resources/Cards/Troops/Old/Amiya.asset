@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Amiya
+  m_EditorClassIdentifier: 
+  name: Amiya
+  art: {fileID: 21300000, guid: 8a025b29ef662e045bcc2fddd83bd090, type: 3}
+  cost: 14
+  type:
+  - Troop
+  - Epic
+  - Caster
+  - Arknights
+  effect: x2 DEF per "Arknights" cards in battlefield when played in third position
+  effectType: 00000000
+  effectCode: 63000000
+  args: 0200000002000000
+  sargs:
+  - Amiya
+  - Arknights
+  attack: 300
+  defense: 100

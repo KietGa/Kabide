@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Lottery Ticket
+  m_EditorClassIdentifier: 
+  name: Lottery Ticket
+  art: {fileID: 21300000, guid: 8e8769e4ef5e8e64fa3d5d1f7950a6f2, type: 3}
+  cost: 1
+  type:
+  - Magic
+  - Common
+  - Lucky
+  effect: 1 in 30 chance WIN the match
+  effectType: 00000000
+  effectCode: 18000000
+  args: 1e000000
+  sargs: []
+  counter: 0

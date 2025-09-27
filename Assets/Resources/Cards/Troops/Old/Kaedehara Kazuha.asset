@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Kaedehara Kazuha
+  m_EditorClassIdentifier: 
+  name: Kaedehara Kazuha
+  art: {fileID: 21300000, guid: 3c8bccc4cf8c0e342b1715e0607d8f9a, type: 3}
+  cost: 10
+  type:
+  - Troop
+  - Epic
+  - Ameno
+  - Inazuma
+  - Genshin
+  effect: 'x3 ATK if not played in battlefield with "Raiden Shogun" '
+  effectType: 00000000
+  effectCode: 2f000000
+  args: 03000000
+  sargs:
+  - Raiden Shogun
+  counter: 0
+  attack: 200
+  defense: 120

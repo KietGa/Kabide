@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Bank
+  m_EditorClassIdentifier: 
+  name: Bank
+  art: {fileID: 21300000, guid: e1386afa03eb35c4d957855d83f93d20, type: 3}
+  cost: 5
+  type:
+  - Magic
+  - Uncommon
+  - Lucky
+  effect: 'Earn an extra $1 of interest for every $5 you have at end of round (Max:
+    20$)'
+  effectType: 02000000
+  effectCode: 03000000
+  args: 
+  sargs: []
+  counter: 0

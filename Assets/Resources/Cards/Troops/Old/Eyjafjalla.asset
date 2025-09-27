@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Eyjafjalla
+  m_EditorClassIdentifier: 
+  name: Eyjafjalla
+  art: {fileID: 21300000, guid: 654ddc5296163e14c9ba717222fae86b, type: 3}
+  cost: 18
+  type:
+  - Troop
+  - Mythic
+  - Caster
+  - Arknights
+  effect: Copy troop effect in third position when played in fourth position
+  effectType: 00000000
+  effectCode: 6f000000
+  args: 0200000003000000
+  sargs:
+  - Eyjafjalla
+  attack: 100
+  defense: 100

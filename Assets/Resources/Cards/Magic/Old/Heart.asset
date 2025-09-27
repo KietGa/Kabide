@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Heart
+  m_EditorClassIdentifier: 
+  name: Heart
+  art: {fileID: 21300000, guid: 2f62db87282083040957c319c2aaf184, type: 3}
+  cost: 4
+  type:
+  - Magic
+  - Uncommon
+  - Lucky
+  effect: Earn $2 per discard if no discards are used by end of the round
+  effectType: 02000000
+  effectCode: 08000000
+  args: 02000000
+  sargs: []
+  counter: 0

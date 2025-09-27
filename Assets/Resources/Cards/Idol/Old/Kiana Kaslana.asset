@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd2ff531dc635747994e57db1bf1ecc, type: 3}
+  m_Name: Kiana Kaslana
+  m_EditorClassIdentifier: 
+  name: Kiana Kaslana
+  art: {fileID: 21300000, guid: 520be50aa7c84b44e9b44cf5b3b3c9ab, type: 3}
+  cost: 20
+  type:
+  - Idol
+  - Mythic
+  - HI3
+  effect: +260 Base ATK
+  effectType: 00000000
+  effectCode: 00000000
+  args: 04010000
+  sargs: []

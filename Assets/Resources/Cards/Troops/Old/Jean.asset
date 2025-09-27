@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Jean
+  m_EditorClassIdentifier: 
+  name: Jean
+  art: {fileID: 21300000, guid: 97ef1514ab94c9b4e8c53a152e22a1be, type: 3}
+  cost: 14
+  type:
+  - Troop
+  - Epic
+  - Ameno
+  - Mondstadt
+  - Genshin
+  effect: x2 ATK with each "Mondstadt" card played in battlefield
+  effectType: 00000000
+  effectCode: 0d000000
+  args: 02000000
+  sargs:
+  - Mondstadt
+  attack: 80
+  defense: 60

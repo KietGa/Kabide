@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Baron Nashor
+  m_EditorClassIdentifier: 
+  name: 'Baron Nashor '
+  art: {fileID: 21300000, guid: d5f41ad991337b846a143f562367ee5c, type: 3}
+  cost: 5
+  type:
+  - Troop
+  - Epic
+  - Void
+  - LOL
+  effect: 'Destroy this card +30$ '
+  effectType: 04000000
+  effectCode: 02000000
+  args: 1e000000
+  sargs: []
+  attack: 200
+  defense: 200

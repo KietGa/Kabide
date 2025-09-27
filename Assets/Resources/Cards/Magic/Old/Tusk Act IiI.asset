@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Tusk Act IiI
+  m_EditorClassIdentifier: 
+  name: Tusk Act III
+  art: {fileID: 21300000, guid: bbe97184f4ebc9c478c0eef79c4e99d9, type: 3}
+  cost: 4
+  type:
+  - Magic
+  - Rare
+  - Tusk
+  - Jojo
+  effect: x7 ATK & Auto destroy after 4 turns and become "Tusk Act IV"
+  effectType: 0000000002000000
+  effectCode: 010000000c000000
+  args: 0700000004000000
+  sargs: []
+  counter: 0

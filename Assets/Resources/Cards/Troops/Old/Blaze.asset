@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Blaze
+  m_EditorClassIdentifier: 
+  name: Blaze
+  art: {fileID: 21300000, guid: f5b16e03445b5b84e975f4311445f1b3, type: 3}
+  cost: 21
+  type:
+  - Troop
+  - Legendary
+  - Guard
+  - Arknights
+  effect: x80 ATK when played in first position
+  effectType: 00000000
+  effectCode: 70000000
+  args: 5000000000000000
+  sargs:
+  - Blaze
+  attack: 500
+  defense: 500

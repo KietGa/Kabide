@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5b08656dbf88143a168c77789e396a, type: 3}
+  m_Name: Masterwork Chest
+  m_EditorClassIdentifier: 
+  name: Masterwork Chest
+  art: {fileID: 21300000, guid: c0837a327e08fe944a4e6a494d07c9cd, type: 3}
+  cost: 9
+  type:
+  - Gacha
+  - Rare
+  - LOL
+  effect: 'Choose 1 of up to 4 "LOL" card '
+  effectType: 00000000
+  effectCode: 02000000
+  args: 04000000
+  sargs:
+  - LOL

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3490c994ad1b99409b154859a3b934b, type: 3}
+  m_Name: Lunalynn
+  m_EditorClassIdentifier: 
+  name: Lunalynn
+  art: {fileID: 21300000, guid: a8a7a6f421fe2bb4da56bfc745a6724e, type: 3}
+  cost: 0
+  type:
+  - Blessing
+  - Legendary
+  - Mementomori
+  effect: +500 Base DEF
+  effectType: 
+  effectCode: 
+  args: 
+  sargs: []

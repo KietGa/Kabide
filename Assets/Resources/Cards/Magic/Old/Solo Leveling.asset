@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Solo Leveling
+  m_EditorClassIdentifier: 
+  name: Solo Leveling
+  art: {fileID: 21300000, guid: 58aa8370b53b1e548a98e9a45876cf24, type: 3}
+  cost: 9
+  type:
+  - Magic
+  - Rare
+  - SL
+  effect: '+50 ATK per played (Currently: +0 ATK)'
+  effectType: 00000000
+  effectCode: 35000000
+  args: 32000000
+  sargs:
+  - Solo Leveling
+  counter: 0
