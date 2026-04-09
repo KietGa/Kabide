@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Super Play
+  m_EditorClassIdentifier: 
+  name: Super Play
+  art: {fileID: 21300000, guid: f98075aea4e33c74bb05ea597dc7ca77, type: 3}
+  cost: 25
+  type:
+  - Magic
+  - Uncommon
+  - Haikyuu
+  effect: Auto destroy after 7 turns then +1 superfield and reset counter
+  effectType: 02000000
+  effectCode: 0f000000
+  args: 0100000007000000
+  sargs: []

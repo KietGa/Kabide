@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -92,15 +90,19 @@ public class GameManager : MonoBehaviour
 
     public BigInteger totalAttack { get; set; }
     public BigInteger totalDefense { get; set; }
-    public int baseDefense;
-    public int baseAttack;
+    public int baseDefense { get; set; }
+    public int baseAttack { get; set; }
     public BigInteger totalScore { get; set; }
     public bool isBattle { get; set; }
     public bool isCount { get; set; }
     public int skipTime { get; set; }
     public int battleTime { get; set; }
     public int artifactSellValue { get; set; }
+    public int valleyStockValue { get; set; }
+    public int wulingStockValue { get; set; }
     public int tuskCounter { get; set; }
+    public int aboveCounter { get; set; }
+    public int superPlayCounter { get; set; }
     public int heartSteelCounter { get; set; }
     public int soloLevelingCounter { get; set; }
     public int kaynCounter { get; set; }
@@ -128,6 +130,10 @@ public class GameManager : MonoBehaviour
     public bool isSellMagic { get; set; }
     public int battleBonus { get; set; }
     public int skipBonus { get; set; }
+    public int challengeATKBonus { get; set; }
+    public int challengeDEFBonus { get; set; }
+    public int skipATKBonus { get; set; }
+    public int skipDEFBonus { get; set; }
 
     private float playedTime;
 
@@ -176,6 +182,7 @@ public class GameManager : MonoBehaviour
             FreeRerollShop();
             RerollPack();
             ToShop();
+            EMInstance.ResetBirthdayCake();
         }
         else if (PlayerPrefs.GetInt("save") == 1)
         {
@@ -229,6 +236,10 @@ public class GameManager : MonoBehaviour
             skipTime = PlayerPrefs.GetInt("skipTime");
             battleTime = PlayerPrefs.GetInt("battleTime");
             artifactSellValue = PlayerPrefs.GetInt("artifactSellValue");
+            wulingStockValue = PlayerPrefs.GetInt("wulingStockValue");
+            valleyStockValue = PlayerPrefs.GetInt("valleyStockValue");
+            aboveCounter = PlayerPrefs.GetInt("aboveCounter");
+            superPlayCounter = PlayerPrefs.GetInt("superPlayCounter");
             rerollMoney = PlayerPrefs.GetInt("rerollMoney");
             rerollBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll - " + rerollMoney + "$";
             handSize = PlayerPrefs.GetInt("handSize");
@@ -258,6 +269,16 @@ public class GameManager : MonoBehaviour
             soloLevelingCounter = PlayerPrefs.GetInt("soloLevelingCounter");
             heartSteelCounter = PlayerPrefs.GetInt("heartSteelCounter");
             currentBattlefield = PlayerPrefs.GetInt("currentBattlefield");
+            challengeATKBonus = PlayerPrefs.GetInt("challengeATKBonus");
+            challengeDEFBonus = PlayerPrefs.GetInt("challengeDEFBonus");
+            skipATKBonus = PlayerPrefs.GetInt("skipATKBonus");
+            skipDEFBonus = PlayerPrefs.GetInt("skipDEFBonus");
+            bool hasAine = PlayerPrefs.GetInt("hasAine") == 1;
+            if (!hasAine && bless == 15)
+            {
+                EMInstance.aine.SetActive(false);
+                blessCountText.text = "0/1";
+            }
 
             switch (state)
             {
@@ -446,6 +467,9 @@ public class GameManager : MonoBehaviour
                 seedText.text = "Seed: CC" + seed;
             }
         }
+
+        float bonus = (PlayerPrefs.GetInt("gameSpeed") - 1) * 0.5f;
+        Time.timeScale = 1 + bonus;
     }
 
     private void SetObject(string objectName, GameObject theObject)
@@ -618,6 +642,54 @@ public class GameManager : MonoBehaviour
             case "Crownslayer":
                 EMInstance.crownslayer = theObject;
                 break;
+
+            case "Valley Stock":
+                EMInstance.valleyStock = theObject;
+                break;
+
+            case "Wuling Stock":
+                EMInstance.wulingStock = theObject;
+                break;
+
+            case "Volcano":
+                EMInstance.volcano = theObject;
+                break;
+
+            case "Smashing Ground":
+                EMInstance.smashingGround = theObject;
+                break;
+
+            case "Ice Age":
+                EMInstance.iceAge = theObject;
+                break;
+
+            case "Electron":
+                EMInstance.electron = theObject;
+                break;
+
+            case "Above":
+                EMInstance.above = theObject;
+                break;
+
+            case "Super Play":
+                EMInstance.superPlay = theObject;
+                break;
+
+            case "Birthday Cake":
+                EMInstance.birthdayCake = theObject;
+                break;
+
+            case "Wulfgard":
+                EMInstance.wulfgard = theObject;
+                break;
+
+            case "Xaihi":
+                EMInstance.xaihi = theObject;
+                break;
+
+            case "Skaarl":
+                EMInstance.skaarl = theObject;
+                break;
         }
     }
 
@@ -631,13 +703,6 @@ public class GameManager : MonoBehaviour
             battleCountText.text = cardsInBattlefield.Count + "/" + currentBattlefield;
             handsizeCountText.text = cardsInHandfield.Count + "/" + handSize;
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SaveGame();
-        }
-        */
     }
 
     private void Blessing()
@@ -647,8 +712,8 @@ public class GameManager : MonoBehaviour
         switch (bless)
         {
             case 0:
-                baseDefense += 100;
-                baseAttack += 100;
+                baseDefense += 200;
+                baseAttack += 200;
                 break; 
 
             case 1:
@@ -656,11 +721,11 @@ public class GameManager : MonoBehaviour
                 break;
 
             case 2:
-                baseDefense += 400;
+                baseDefense += 500;
                 break;
 
             case 3:
-                baseAttack += 400;
+                baseAttack += 500;
                 break;
 
             case 4:
@@ -713,6 +778,22 @@ public class GameManager : MonoBehaviour
                 break;
 
             case 15:
+                break;
+
+            case 16:
+                challengeDEFBonus += 30;
+                break;
+
+            case 17:
+                challengeATKBonus += 30;
+                break;
+
+            case 18:
+                skipATKBonus += 40;
+                break;
+
+            case 19:
+                skipDEFBonus += 40;
                 break;
 
             default:
@@ -1114,7 +1195,7 @@ public class GameManager : MonoBehaviour
             card.GetComponent<TroopCardDisplay>().LateEffect();
         }
 
-        if (BMInstance.currentBossScore == BMInstance.mainBossScore && BMInstance.stage >= 40)
+        if (BMInstance.currentBossScore == BMInstance.mainBossScore && BMInstance.stage >= 30)
         {
             WinGame();
         }
@@ -1654,6 +1735,8 @@ public class GameManager : MonoBehaviour
     {
         state = 2;
         int ran = Random.Range(2, bgSprites.Length);
+        baseAttack += challengeATKBonus;
+        baseDefense += challengeDEFBonus;
         isSellMagic = false;
         currentBattlefield = maxTroopInBattlefield;
         ChangeHand(1, maxHands);
@@ -1699,6 +1782,11 @@ public class GameManager : MonoBehaviour
         foreach (Transform magic in magicfieldTrans)
         {
             magic.GetComponent<MagicCardDisplay>().StartEffect();
+        }
+
+        foreach (Transform super in superfieldTrans)
+        {
+            super.GetComponent<SuperCardDisplay>().StartEffect();
         }
 
         GetRandomTroop();
@@ -2037,11 +2125,31 @@ public class GameManager : MonoBehaviour
     {
         if (!endGamePanel.gameObject.activeSelf)
         {
+            int gameSpeed = PlayerPrefs.GetInt("gameSpeed");
+            float sfx = PlayerPrefs.GetFloat("sfx");
+            float bgm = PlayerPrefs.GetFloat("bgm");
+            float master = PlayerPrefs.GetFloat("master");
+
+            int playedNumber = PlayerPrefs.GetInt("playedNumber", 0) + 1;
+            float time = float.Parse(PlayerPrefs.GetString("playedTime", "0"));
+            int prevSeed = PlayerPrefs.GetInt("seed");
+            int highestStage = PlayerPrefs.GetInt("highestStage", 0);
+            string highestScore = PlayerPrefs.GetString("highScore", "0");
+
             PlayerPrefs.DeleteAll();
 
-            float time = float.Parse(PlayerPrefs.GetString("playedTime", "0"));
+            PlayerPrefs.SetInt("gameSpeed", gameSpeed);
+            PlayerPrefs.SetFloat("sfx", sfx);
+            PlayerPrefs.SetFloat("bgm", bgm);
+            PlayerPrefs.SetFloat("master", master);
+
             string newTime = Mathf.CeilToInt(time + playedTime).ToString();
+            PlayerPrefs.SetInt("playedNumber", playedNumber);
             PlayerPrefs.SetString("playedTime", newTime);
+            PlayerPrefs.SetInt("prevSeed", prevSeed);
+            PlayerPrefs.GetInt("highestStage", highestStage);
+            PlayerPrefs.SetString("highScore", highestScore);
+
 
             SaveState.SSInstance.SaveSeed();
             PlayerPrefs.SetInt("seed", seed);
@@ -2098,6 +2206,14 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("hutaoATKCounter", hutaoATKCounter);
             PlayerPrefs.SetInt("nasusCounter", nasusCounter);
             PlayerPrefs.SetInt("mountainCounter", mountainCounter);
+            PlayerPrefs.SetInt("aboveCounter", aboveCounter);
+            PlayerPrefs.SetInt("superPlayCounter", superPlayCounter);
+            PlayerPrefs.SetInt("valleyStockValue", valleyStockValue);
+            PlayerPrefs.SetInt("wulingStockValue", wulingStockValue);
+            PlayerPrefs.SetInt("challengeATKBonus", challengeATKBonus);
+            PlayerPrefs.SetInt("challengeDEFBonus", challengeDEFBonus);
+            PlayerPrefs.SetInt("skipATKBonus", skipATKBonus);
+            PlayerPrefs.SetInt("skipDEFBonus", skipDEFBonus);
 
             PlayerPrefs.SetInt("smallBossReward", BMInstance.smallBossReward);
             PlayerPrefs.SetInt("bigBossReward", BMInstance.bigBossReward);
@@ -2116,6 +2232,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("mainBossBtn", BMInstance.mainBossBtn.interactable ? 1 : 0);
             PlayerPrefs.SetInt("smallBossSkipEffect", BMInstance.smallBossSkipEffect);
             PlayerPrefs.SetInt("bigBossSkipEffect", BMInstance.bigBossSkipEffect);
+            PlayerPrefs.SetInt("hasAine", EMInstance.aine.activeSelf ? 1 : 0);
             int counting = 0;
 
             foreach (GameObject card in cardsInAltarfield)
@@ -2349,6 +2466,26 @@ public class GameManager : MonoBehaviour
                 counting++;
             }
         }
+    }
+
+    public bool HasElectron()
+    {
+        return cardsInMagicfield.Contains(EMInstance.electron);
+    }
+
+    public bool HasVolcano()
+    {
+        return cardsInMagicfield.Contains(EMInstance.volcano);
+    }
+
+    public bool HasSmashingGround()
+    {
+        return cardsInMagicfield.Contains(EMInstance.smashingGround);
+    }
+
+    public bool HasIceAge()
+    {
+        return cardsInMagicfield.Contains(EMInstance.iceAge);
     }
 
     public bool HasBraveHeart(int arg)

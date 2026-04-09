@@ -19,9 +19,9 @@ MonoBehaviour:
   - Super
   - Rare
   - Meme
-  effect: +10000 ATK
+  effect: +100000 ATK
   effectType: 01000000
   effectCode: 03000000
-  args: 10270000
+  args: a0860100
   sargs: []
   isUseOutside: 0

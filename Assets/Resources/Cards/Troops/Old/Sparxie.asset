@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Sparxie
+  m_EditorClassIdentifier: 
+  name: Sparxie
+  art: {fileID: 21300000, guid: 851d94c79be98ee45badb9f8fc71c67f, type: 3}
+  cost: 35
+  type:
+  - Troop
+  - Legendary
+  - HSR
+  effect: '+2000 ATK for each 3 "HSR" cards in the all field '
+  effectType: 00000000
+  effectCode: 82000000
+  args: d007000003000000
+  sargs:
+  - HSR
+  attack: 0
+  defense: 0

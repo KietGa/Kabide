@@ -19,8 +19,8 @@ MonoBehaviour:
   - Idol
   - Mythic
   - Hololive
-  effect: +300 Base ATK
+  effect: +330 Base ATK
   effectType: 00000000
   effectCode: 00000000
-  args: 2c010000
+  args: 4a010000
   sargs: []

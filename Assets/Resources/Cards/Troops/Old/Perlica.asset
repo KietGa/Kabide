@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Perlica
+  m_EditorClassIdentifier: 
+  name: Perlica
+  art: {fileID: 21300000, guid: d65e1f5d6f41c354490c27cfbe8df0c4, type: 3}
+  cost: 30
+  type:
+  - Troop
+  - Legendary
+  - Caster
+  - Electro
+  - A9E
+  effect: x3 ATK for each "A9E" in battlefield. Become x4 if 1 "Endmin" in battlefield
+    and x5 if 2 "Endmin" in battlefield.
+  effectType: 00000000
+  effectCode: 88000000
+  args: 03000000
+  sargs:
+  - A9E
+  - Male Endmin
+  - Female Endmin
+  attack: 500
+  defense: 300

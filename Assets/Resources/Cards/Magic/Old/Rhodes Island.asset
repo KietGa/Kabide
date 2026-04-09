@@ -18,7 +18,7 @@ MonoBehaviour:
   type:
   - Magic
   - Epic
-  - Lucky
+  - Arknights
   effect: x2 DEF per "Arknights" cards played in battlefield
   effectType: 00000000
   effectCode: 23000000

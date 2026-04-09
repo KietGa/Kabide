@@ -41,17 +41,21 @@ public class AudioManager : MonoBehaviour
     {
         int stage = BossManager.BMInstance.stage;
 
-        if (stage >= 20)
+        if (stage >= 25)
+        {
+            bgm.volume = 0.1f;
+        }
+        else if (stage >= 20)
         {
             bgm.volume = 0.1f;
         }
         else if (stage >= 15)
         {
-            bgm.volume = 0.3f;
+            bgm.volume = 0.1f;
         }
         else if (stage >= 10)
         {
-            bgm.volume = 0.06f;
+            bgm.volume = 0.1f;
         }
         else if (stage >= 5)
         {
@@ -59,12 +63,12 @@ public class AudioManager : MonoBehaviour
         }
         else if (stage >= 1)
         {
-            bgm.volume = 0.03f;
+            bgm.volume = 0.1f;
         }
 
-        if (stage >= 20)
+        if (stage >= 25)
         {
-            bgm.clip = bclips[4];
+            bgm.clip = bclips[5];
         }
         else
         {

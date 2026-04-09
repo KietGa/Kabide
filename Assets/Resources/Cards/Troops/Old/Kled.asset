@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Kled
+  m_EditorClassIdentifier: 
+  name: Kled
+  art: {fileID: 21300000, guid: 6816493a8e26b1641972474a80c66873, type: 3}
+  cost: 25
+  type:
+  - Troop
+  - Mythic
+  - Noxus
+  - LOL
+  effect: Win the match if play with "Skaarl"
+  effectType: 00000000
+  effectCode: 7e000000
+  args: 
+  sargs:
+  - Skaarl
+  attack: 1000
+  defense: 100

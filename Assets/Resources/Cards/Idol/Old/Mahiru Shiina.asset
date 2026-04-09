@@ -19,8 +19,8 @@ MonoBehaviour:
   - Idol
   - Legendary
   - Angel
-  effect: +400 Base DEF
+  effect: +500 Base DEF
   effectType: 00000000
   effectCode: 01000000
-  args: 90010000
+  args: f4010000
   sargs: []

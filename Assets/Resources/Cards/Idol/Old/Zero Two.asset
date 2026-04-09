@@ -19,8 +19,8 @@ MonoBehaviour:
   - Idol
   - Uncommon
   - Darling
-  effect: +70 Base ATK
+  effect: +100 Base ATK
   effectType: 00000000
   effectCode: 00000000
-  args: 46000000
+  args: 64000000
   sargs: []

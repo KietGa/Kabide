@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Battle Of Concepts
+  m_EditorClassIdentifier: 
+  name: Battle Of Concepts
+  art: {fileID: 21300000, guid: fab40bcadd8e2324d823e96e2541fc3b, type: 3}
+  cost: 25
+  type:
+  - Magic
+  - Mythic
+  - Haikyuu
+  effect: x100 ATK if all card in battlefield is non-effect & x25 DEF if all cards
+    in the battlefield is effect
+  effectType: 00000000
+  effectCode: 89000000
+  args: 6400000019000000
+  sargs: []

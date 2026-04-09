@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efcc28c329cbf74c845a346764f287d, type: 3}
+  m_Name: Thug Life
+  m_EditorClassIdentifier: 
+  name: Thug Life
+  art: {fileID: 21300000, guid: 7fa55addf21144e49bfaf7684f10f61a, type: 3}
+  cost: 10
+  type:
+  - Magic
+  - Rare
+  - Lucky
+  effect: +10$ if you win the match with only 1 hand but -10$ if not
+  effectType: 02000000
+  effectCode: 0d000000
+  args: 0a000000f6ffffff
+  sargs: []

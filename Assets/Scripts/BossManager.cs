@@ -388,21 +388,25 @@ public class BossManager : MonoBehaviour
     
         for (int i = 1; i <= stage; i++) 
         {
-            if (i >= 20)
+            if (i >= 25)
+            {
+                mul *= i * 2;
+            }
+            else if (i >= 20)
             {
                 mul *= i;
             }
             else if (i >= 15)
             {
-                mul += i * 10 * i * i * i;
+                mul += i * i * i * i * 80;
             }
             else if (i >= 10)
             {
-                mul += i * 10 * i * i;
+                mul += i * i * i * 30;
             }
             else if (i >= 5)
             {
-                mul += i * 10 * i;
+                mul += i * i * 10;
             }
             else
             {
@@ -604,8 +608,10 @@ public class BossManager : MonoBehaviour
 
     public void Skip()
     {
-        GameManager.GMInstance.isBattle = false;
-        GameManager.GMInstance.skipTime++;
+        GMInstance.isBattle = false;
+        GMInstance.skipTime++;
+        GMInstance.baseAttack += GMInstance.skipATKBonus;
+        GMInstance.baseDefense += GMInstance.skipDEFBonus;
 
         foreach (Transform troop in GameManager.GMInstance.campfieldTrans)
         {

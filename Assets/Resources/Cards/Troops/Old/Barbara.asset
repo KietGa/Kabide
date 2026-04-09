@@ -18,7 +18,7 @@ MonoBehaviour:
   type:
   - Troop
   - Uncommon
-  - Cyro
+  - Hydro
   - Mondstadt
   - Genshin
   effect: x2 DEF when played in battlefield
@@ -26,6 +26,5 @@ MonoBehaviour:
   effectCode: 03000000
   args: 02000000
   sargs: []
-  counter: 0
   attack: 20
   defense: 40

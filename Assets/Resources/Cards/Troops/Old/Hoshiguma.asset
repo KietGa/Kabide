@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Hoshiguma
+  m_EditorClassIdentifier: 
+  name: Hoshiguma
+  art: {fileID: 21300000, guid: 8508a7bc66f73e948b8cf801a58c4386, type: 3}
+  cost: 15
+  type:
+  - Troop
+  - Epic
+  - Defender
+  - Arknights
+  effect: x10 DEF if played in first position & x6 DEF if played with "Ch'en"
+  effectType: 00000000
+  effectCode: 7f000000
+  args: 0a0000000000000006000000
+  sargs:
+  - Hoshiguma
+  - Ch'en
+  attack: 120
+  defense: 80

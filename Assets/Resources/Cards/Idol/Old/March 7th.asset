@@ -19,8 +19,8 @@ MonoBehaviour:
   - Idol
   - Uncommon
   - HSR
-  effect: +70 Base DEF
+  effect: +90 Base DEF
   effectType: 00000000
   effectCode: 01000000
-  args: 46000000
+  args: 5a000000
   sargs: []

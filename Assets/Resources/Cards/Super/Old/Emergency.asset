@@ -19,10 +19,9 @@ MonoBehaviour:
   - Super
   - Common
   - Lucky
-  effect: +100 ATK
+  effect: +1000 ATK
   effectType: 01000000
   effectCode: 03000000
-  args: 64000000
+  args: e8030000
   sargs: []
-  counter: 0
   isUseOutside: 0

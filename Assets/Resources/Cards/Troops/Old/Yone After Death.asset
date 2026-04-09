@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Yone After Death
   art: {fileID: 21300000, guid: 86dedb43880773e4fa419be7d7b6d1a9, type: 3}
-  cost: 5
+  cost: 4
   type:
   - Troop
   - Uncommon
   - Ionia
   - LOL
-  effect: x3 ATK
+  effect: x4 ATK
   effectType: 00000000
   effectCode: 01000000
-  args: 03000000
+  args: 04000000
   sargs: []
-  attack: 120
-  defense: 60
+  attack: 150
+  defense: 100

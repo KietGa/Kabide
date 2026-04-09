@@ -19,8 +19,8 @@ MonoBehaviour:
   - Idol
   - Rare
   - Genshin
-  effect: +120 Base DEF
+  effect: +150 Base DEF
   effectType: 00000000
   effectCode: 01000000
-  args: 78000000
+  args: 96000000
   sargs: []

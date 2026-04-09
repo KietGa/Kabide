@@ -19,8 +19,8 @@ MonoBehaviour:
   - Idol
   - Common
   - Alya
-  effect: +30 Base ATK
+  effect: +40 Base ATK
   effectType: 00000000
   effectCode: 00000000
-  args: 1e000000
+  args: 28000000
   sargs: []

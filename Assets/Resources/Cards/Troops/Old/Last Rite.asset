@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dddbe76e13c4f4dba6293f4303f89a, type: 3}
+  m_Name: Last Rite
+  m_EditorClassIdentifier: 
+  name: Last Rite
+  art: {fileID: 21300000, guid: ba5eb3482e768cb44ab7264711fde568, type: 3}
+  cost: 16
+  type:
+  - Troop
+  - Epic
+  - Striker
+  - Cyro
+  - A9E
+  effect: x2 ATK for each "Cyro" cards played in battlefield or x2 ATK when hold
+    in hand
+  effectType: 0000000006000000
+  effectCode: 8300000007000000
+  args: 02000000
+  sargs:
+  - Cyro
+  attack: 150
+  defense: 100

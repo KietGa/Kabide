@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd2ff531dc635747994e57db1bf1ecc, type: 3}
+  m_Name: Sumi Sakurasawa
+  m_EditorClassIdentifier: 
+  name: Ruka Sarashina
+  art: {fileID: 21300000, guid: 8c243d6026f9fcf4890078a4a5381ed1, type: 3}
+  cost: 30
+  type:
+  - Idol
+  - Epic
+  - KO
+  effect: +2 Handsize
+  effectType: 00000000
+  effectCode: 04000000
+  args: 02000000
+  sargs: []

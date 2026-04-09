@@ -19,8 +19,8 @@ MonoBehaviour:
   - Idol
   - Rare
   - Hololive
-  effect: +120 Base ATK
+  effect: +140 Base ATK
   effectType: 00000000
   effectCode: 00000000
-  args: 78000000
+  args: 8c000000
   sargs: []

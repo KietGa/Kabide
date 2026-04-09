@@ -18,7 +18,7 @@ MonoBehaviour:
   type:
   - Idol
   - Rare
-  - ONK
+  - BA
   effect: +1 Superfield slot
   effectType: 00000000
   effectCode: 0b000000

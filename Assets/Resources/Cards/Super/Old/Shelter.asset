@@ -19,9 +19,9 @@ MonoBehaviour:
   - Super
   - Rare
   - Shelter
-  effect: +10000 DEF
+  effect: +100000 DEF
   effectType: 01000000
   effectCode: 04000000
-  args: 10270000
+  args: a0860100
   sargs: []
   isUseOutside: 0

@@ -50,6 +50,8 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+
         foreach (Transform card in chooseTrans)
         {
             cardsInBlessingfield.Add(card.gameObject);

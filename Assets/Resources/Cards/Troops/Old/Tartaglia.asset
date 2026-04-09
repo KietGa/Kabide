@@ -19,7 +19,7 @@ MonoBehaviour:
   - Troop
   - Rare
   - Hydro
-  - Fatui
+  - Liyue
   - Genshin
   effect: +4$
   effectType: 00000000

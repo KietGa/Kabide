@@ -19,7 +19,7 @@ MonoBehaviour:
   - Super
   - Uncommon
   - Lucky
-  effect: Reroll packfield
+  effect: Reroll gachafield
   effectType: 01000000
   effectCode: 10000000
   args: 

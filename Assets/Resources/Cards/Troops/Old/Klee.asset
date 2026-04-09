@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Klee
   art: {fileID: 21300000, guid: 07eab6672db0ddc45bf43cdda76591d6, type: 3}
-  cost: 0
+  cost: 10
   type:
   - Troop
   - Epic
@@ -25,5 +25,5 @@ MonoBehaviour:
   effectCode: ffffffff
   args: 
   sargs: []
-  attack: 3000
+  attack: 2500
   defense: 0

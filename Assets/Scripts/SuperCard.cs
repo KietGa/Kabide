@@ -6,4 +6,5 @@ using UnityEngine;
 public class SuperCard : Card
 {
     public bool isUseOutside;
+    public bool isCantUse;
 }

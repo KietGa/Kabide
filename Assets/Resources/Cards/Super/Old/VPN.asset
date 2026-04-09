@@ -19,10 +19,9 @@ MonoBehaviour:
   - Super
   - Common
   - Lucky
-  effect: +100 DEF
+  effect: +1000 DEF
   effectType: 01000000
   effectCode: 04000000
-  args: 64000000
+  args: e8030000
   sargs: []
-  counter: 0
   isUseOutside: 0

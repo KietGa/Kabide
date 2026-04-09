@@ -50,10 +50,29 @@ public class EffectManager : MonoBehaviour
     public GameObject mountain;
     public GameObject mon3tr;
     public GameObject crownslayer;
+    public GameObject valleyStock;
+    public GameObject wulingStock;
+    public GameObject volcano;
+    public GameObject smashingGround;
+    public GameObject iceAge;
+    public GameObject electron;
+    public GameObject above;
+    public GameObject superPlay;
+    public GameObject birthdayCake;
+    public GameObject wulfgard;
+    public GameObject xaihi;
+    public GameObject skaarl;
 
     private void Awake()
     {
         EMInstance = this;
+    }
+
+    public void ResetBirthdayCake()
+    {
+        birthdayCake.GetComponent<SuperCardDisplay>().card.type[1] = "Common";
+        birthdayCake.GetComponent<SuperCardDisplay>().Init();
+        birthdayCake.GetComponent<SuperCardDisplay>().priceText.transform.parent.gameObject.SetActive(true);
     }
 
     public void Point(TextMeshProUGUI pointText, string effect, Color color)
@@ -73,9 +92,51 @@ public class EffectManager : MonoBehaviour
         pointText.gameObject.SetActive(false);
     }
 
+    //t10
+    public void SellEffect(int effectCode, int[] args, string[] sargs)
+    {
+        switch (effectCode)
+        {
+            case -1:
+                break;
+
+            case 0:
+                string rarity = "Uncommon";
+
+                switch (birthdayCake.GetComponent<SuperCardDisplay>().card.type[1])
+                {
+                    case "Uncommon":
+                        rarity = "Rare";
+                        break;
+
+                    case "Rare":
+                        rarity = "Epic";
+                        break;
+
+                    case "Epic":
+                        rarity = "Mythic";
+                        break;
+
+                    case "Mythic":
+                        rarity = "Legendary";
+                        break;
+
+                    case "Legendary":
+                        rarity = "Legendary";
+                        break;
+                }
+
+                birthdayCake.GetComponent<SuperCardDisplay>().card.type[1] = rarity;
+                birthdayCake.GetComponent<SuperCardDisplay>().Init();
+                birthdayCake.GetComponent<SuperCardDisplay>().priceText.transform.parent.gameObject.SetActive(true);
+                break;
+
+        }
+    }
+
+    //t3
     public void StartEffect(int effectCode, int[] args, string[] sargs)
     {
-        //t3
         switch (effectCode)
         {
             case -1:
@@ -245,7 +306,6 @@ public class EffectManager : MonoBehaviour
                 break;
 
             case 18:
-
                 if (GMInstance.cardsInSuperfield.Count < GMInstance.maxSuperInSuperfield)
                 {
                     count = 0;
@@ -280,6 +340,29 @@ public class EffectManager : MonoBehaviour
                     }
                 }
                 break;
+
+            case 19:
+                if (GMInstance.cardsInSuperfield.Contains(valleyStock))
+                {
+                    GMInstance.valleyStockValue = Random.Range(args[0], args[1]);
+                }
+                break;
+
+            case 20:
+                if (GMInstance.cardsInSuperfield.Contains(wulingStock))
+                {
+                    GMInstance.wulingStockValue = Random.Range(args[0], args[1]);
+                }
+                break;
+
+            case 21:
+                GMInstance.AddMoney(args[0]);
+                break;
+
+            case 22: 
+                GMInstance.handSize += args[0];
+                GMInstance.currentBattlefield += args[1];
+                break;
         }
     }
 
@@ -306,6 +389,8 @@ public class EffectManager : MonoBehaviour
                 if (!isSafe)
                 {
                     GMInstance.CardFromBattlefieldToShopfield(mon3tr);
+                    EMInstance.SpecialEffect(2, EMInstance.deathNote.GetComponent<MagicCardDisplay>().card.args, null);
+                    EMInstance.SpecialEffect(4, EMInstance.yoshikageKira.GetComponent<TroopCardDisplay>().card.args, null);
                 }
 
                 break;
@@ -316,19 +401,22 @@ public class EffectManager : MonoBehaviour
                     if (GMInstance.battlefieldTrans.GetChild(args[0]).GetComponent<TroopCardDisplay>().card.name != sargs[0])
                     {
                         GMInstance.CardFromBattlefieldToShopfield(crownslayer);
+                        EMInstance.SpecialEffect(2, EMInstance.deathNote.GetComponent<MagicCardDisplay>().card.args, null);
+                        EMInstance.SpecialEffect(4, EMInstance.yoshikageKira.GetComponent<TroopCardDisplay>().card.args, null);
                     }
                 }
                 catch
                 {
                 }
                 break;
+
+
         }
     }
 
-
+    //t8
     public void SkipEffect(int effectCode, int[] args, string[] sargs)
     {
-        //t8
         switch (effectCode)
         {
             case -1:
@@ -520,9 +608,9 @@ public class EffectManager : MonoBehaviour
         }
     }
 
+    //t4
     public void DestroyEffect(int effectCode, int[] args, string[] sargs)
     {
-        //t4
         switch (effectCode)
         {
             case -1:
@@ -552,9 +640,9 @@ public class EffectManager : MonoBehaviour
         }
     }
 
+    //t5
     public void AltarEffect(int effectCode, int[] args, string[] sargs)
     {
-        //t5
         switch (effectCode)
         {
             case -1:
@@ -573,12 +661,16 @@ public class EffectManager : MonoBehaviour
             case 2:
                 GMInstance.CardFromAltarfieldToShopfield(zedShadow);
                 break;
+
+            case 3:
+                GMInstance.CardFromAltarfieldToShopfield(skaarl);
+                break;
         }
     }
 
+    //t7
     public void DiscardEffect(int effectCode, int[] args, string[] sargs)
     {
-        //t7
         switch (effectCode)
         {
             case -1:
@@ -612,9 +704,9 @@ public class EffectManager : MonoBehaviour
         }
     }
 
+    //t1
     public void QuickEffect(int effectCode, int[] args, string[] sargs) 
     {
-        //t1
         switch (effectCode)
         {
             case -1:
@@ -855,12 +947,73 @@ public class EffectManager : MonoBehaviour
                 GMInstance.RerollIdol();
                 AudioManager.AMInstance.PlayAudio(5);
                 break;
+
+            case 19:
+                GMInstance.maxSuperInSuperfield += args[0];
+                break;
+
+            case 20:
+                for (int i = 0; i < 1; i++)
+                {
+                    List<GameObject> tempList = new List<GameObject>();
+
+                    if (tempList.Count != 0)
+                    {
+                        tempList.RemoveRange(0, tempList.Count);
+                    }
+
+                    string rarity = birthdayCake.GetComponent<SuperCardDisplay>().card.type[1];
+
+                    foreach (Transform card in GMInstance.shopfieldTrans)
+                    {
+                        if (card.GetComponent<CardDisplay>().type[1] == rarity && !card.gameObject.activeInHierarchy)
+                        {
+                            tempList.Add(card.gameObject);
+                        }
+                    }
+
+                    bool isGet = false;
+
+                    do
+                    {
+                        int ran1 = Random.Range(0, tempList.Count);
+                        if (tempList[ran1].GetComponent<MagicCardDisplay>())
+                        {
+                            if (GMInstance.cardsInMagicfield.Count < GMInstance.maxMagicInMagicfield)
+                            {
+                                tempList[ran1].GetComponent<MagicCardDisplay>().BuyCardFromMagic();
+                                isGet = true;
+                            }
+                        }
+                        else if (tempList[ran1].GetComponent<TroopCardDisplay>())
+                        {
+                            tempList[ran1].GetComponent<TroopCardDisplay>().BuyCardFromMagic();
+                            isGet = true;
+                        }
+                        else if (tempList[ran1].GetComponent<SuperCardDisplay>())
+                        {
+                            if (GMInstance.cardsInSuperfield.Count < GMInstance.maxSuperInSuperfield)
+                            {
+                                tempList[ran1].GetComponent<SuperCardDisplay>().BuyCardFromMagic();
+                                isGet = true;
+                            }
+                        }
+                        tempList[ran1].SetActive(true);
+                        tempList.Remove(tempList[ran1]);
+                        AudioManager.AMInstance.PlayAudio(5);
+                    }
+                    while (!isGet && tempList.Count > 0);
+                }
+
+                ResetBirthdayCake();
+
+                break;
         }
     }
 
+    //t2
     public void LateEffect(int effectCode, int[] args, string[] sargs, TextMeshProUGUI pointText)
     {
-        //t2
         switch (effectCode)
         {
             case -1:
@@ -1031,14 +1184,64 @@ public class EffectManager : MonoBehaviour
                     }
                 }
                 break;
+
+            case 13:
+                if (GMInstance.turn == 1)
+                {
+                    BossManager.BMInstance.currentBossReward += args[0];
+                }
+                else
+                {
+                    BossManager.BMInstance.currentBossReward += args[1];
+                }
+
+                break;
+
+            case 14:
+                if (GMInstance.isBattle)
+                {
+                    GMInstance.aboveCounter++;
+                    if (GMInstance.aboveCounter == args[1])
+                    {
+                        GMInstance.aboveCounter = 0;
+                        GMInstance.CardFromMagicfieldToShopfield(above);
+                        GMInstance.maxMagicInMagicfield += args[0];
+                        above.GetComponent<MagicCardDisplay>().priceText.transform.parent.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        Point(pointText, GMInstance.aboveCounter + "/" + args[1], Color.yellow);
+                        return;
+                    }
+                }
+                break;
+
+            case 15:
+                if (GMInstance.isBattle)
+                {
+                    GMInstance.superPlayCounter++;
+                    if (GMInstance.superPlayCounter == args[1])
+                    {
+                        GMInstance.superPlayCounter = 0;
+                        GMInstance.CardFromMagicfieldToShopfield(superPlay);
+                        GMInstance.maxSuperInSuperfield += args[0];
+                        superPlay.GetComponent<MagicCardDisplay>().priceText.transform.parent.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        Point(pointText, GMInstance.superPlayCounter + "/" + args[1], Color.yellow);
+                        return;
+                    }
+                }
+                break;
         }
 
         Point(pointText, "Effect!", Color.yellow);
     }
 
+    //t0
     public void IdolEffect(int effectCode, int[] args, string[] sargs)
     {
-        //t0
         switch (effectCode) 
         {
             case 0:
@@ -1170,6 +1373,23 @@ public class EffectManager : MonoBehaviour
                 GMInstance.maxHandSize += args[0];
                 GMInstance.currentBattlefield = GMInstance.maxTroopInBattlefield;
                 break;
+
+            case 18:
+                GMInstance.maxHands += args[0];
+                GMInstance.maxDiscards += args[1];
+                break;
+
+            case 19:
+                GMInstance.maxHands += args[0];
+                GMInstance.maxDiscards += args[1];
+                GMInstance.maxHandSize += args[2];
+                break;
+
+            case 20:
+                GMInstance.maxMagicInMagicfield += args[0];
+                GMInstance.maxTroopInBattlefield += args[1];
+                GMInstance.currentBattlefield = GMInstance.maxTroopInBattlefield;
+                break;
         }
     }
 
@@ -1178,9 +1398,9 @@ public class EffectManager : MonoBehaviour
         GMInstance.OpenPack(args[0], effectCode, sargs[0], reset);
     }
 
+    //t6
     public void HandEffect(int effectCode, int[] args, string[] sargs, TextMeshProUGUI pointText)
     {
-        //t6
         switch (effectCode)
         {
             case -1:
@@ -1333,12 +1553,86 @@ public class EffectManager : MonoBehaviour
 
                 Point(pointText, "x" + count, Color.red);
                 break;
+
+            case 4:
+                GMInstance.totalAttack += args[0];
+                GMInstance.baseAttack += args[0];
+                Point(pointText, "Effect!", Color.yellow);
+                break;
+
+            case 5:
+                GMInstance.totalDefense += args[0];
+                GMInstance.baseDefense += args[0];
+                Point(pointText, "Effect!", Color.yellow);
+                break;
+
+            case 6:
+                GMInstance.totalAttack += args[0];
+                Point(pointText, "+" + args[0], Color.red);
+                break;
+
+            case 7:
+                GMInstance.totalAttack *= args[0];
+                Point(pointText, "x" + args[0], Color.red);
+                break;
+
+            case 8:
+                GMInstance.totalDefense += args[0];
+                Point(pointText, "+" + args[0], Color.cyan);
+                break;
+
+            case 9:
+                GMInstance.totalDefense *= args[0];
+                Point(pointText, "x" + args[0], Color.cyan);
+                break;
+
+            case 10:
+                GMInstance.totalAttack += args[1];
+                Point(pointText, "+" + args[1], Color.red);
+                break;
+
+            case 11:
+                count = 1;
+
+                try
+                {
+                    foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                    {
+                        for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                        {
+                            if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                            {
+                                if (GMInstance.HasIceAge())
+                                {
+                                    count *= args[0];
+                                    GMInstance.totalAttack *= args[0];
+                                }
+                                if (card == xaihi)
+                                {
+                                    count *= args[0];
+                                    GMInstance.totalAttack *= args[0];
+                                }
+
+                                count *= args[0];
+                                GMInstance.totalAttack *= args[0];
+                                break;
+                            }
+                        }
+                    }
+
+                    Point(pointText, "x" + count, Color.red);
+                }
+                catch
+                {
+                    Point(pointText, "x" + count, Color.red);
+                }
+                break;
         }
     }
 
+    //t0
     public void Effect(int effectCode, int[] args, string[] sargs, TextMeshProUGUI pointText)
     {
-        //t0
         switch (effectCode)
         {
             case -1:
@@ -1835,7 +2129,6 @@ public class EffectManager : MonoBehaviour
                         if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
                         {
                             count1++;
-                            GMInstance.totalAttack *= args[0];
                             break;
                         }
                     }
@@ -1848,7 +2141,6 @@ public class EffectManager : MonoBehaviour
                         if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
                         {
                             count1++;
-                            GMInstance.totalAttack *= args[0];
                             break;
                         }
                     }
@@ -1861,7 +2153,6 @@ public class EffectManager : MonoBehaviour
                         if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
                         {
                             count1++;
-                            GMInstance.totalAttack *= args[0];
                             break;
                         }
                     }
@@ -1874,7 +2165,6 @@ public class EffectManager : MonoBehaviour
                         if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
                         {
                             count1++;
-                            GMInstance.totalAttack *= args[0];
                             break;
                         }
                     }
@@ -1887,7 +2177,6 @@ public class EffectManager : MonoBehaviour
                         if (card.GetComponent<MagicCardDisplay>().type[i] == sargs[0])
                         {
                             count1++;
-                            GMInstance.totalAttack *= args[0];
                             break;
                         }
                     }
@@ -1900,7 +2189,6 @@ public class EffectManager : MonoBehaviour
                         if (card.GetComponent<IdolCardDisplay>().type[i] == sargs[0])
                         {
                             count1++;
-                            GMInstance.totalAttack *= args[0];
                             break;
                         }
                     }
@@ -1910,6 +2198,7 @@ public class EffectManager : MonoBehaviour
                 for (int i = 0; i < count1; i++)
                 {
                     count *= args[0];
+                    GMInstance.totalAttack *= args[0];
                 }
 
                 Point(pointText, "x" + count, Color.red);
@@ -2747,9 +3036,11 @@ public class EffectManager : MonoBehaviour
                 break;
 
             case 94:
-                GMInstance.totalAttack *= GMInstance.cardsInSuperfield.Count * args[0];
+                count = 1;
+                count += GMInstance.cardsInSuperfield.Count * args[0];
+                GMInstance.totalAttack *= count;
 
-                Point(pointText, "x" + GMInstance.cardsInSuperfield.Count * args[0], Color.red);
+                Point(pointText, "x" + count, Color.red);
                 break;
 
             case 95:
@@ -3276,6 +3567,538 @@ public class EffectManager : MonoBehaviour
                 {
                     Point(pointText, "x" + count, Color.red);
                 }
+                break;
+
+            case 119:
+                count = 1;
+                count += GMInstance.campfieldTrans.childCount + GMInstance.battlefieldTrans.childCount + GMInstance.altarfieldTrans.childCount;
+                GMInstance.totalDefense *= count;
+
+                Point(pointText, "x" + count, Color.blue);
+                break;
+
+            case 120:
+                count = 1;
+                count += GMInstance.altarfieldTrans.childCount * 2;
+                GMInstance.totalAttack *= count;
+
+                Point(pointText, "x" + count, Color.red);
+                break;
+
+            case 121:
+                count = 1;
+
+                if (GMInstance.battlefieldTrans.childCount == 0)
+                {
+                    count = args[0];
+                }
+
+                GMInstance.totalAttack *= count;
+                Point(pointText, "x" + count, Color.red);
+                break;
+
+            case 122:
+                count = GMInstance.cardsInSuperfield.Count * args[0];
+                GMInstance.totalAttack *= count;
+
+                Point(pointText, "x" + count, Color.red);
+
+                break;
+
+            case 123:
+                count = 0;
+
+                foreach (GameObject card in GMInstance.cardsInHandfield.ToArray())
+                {
+                    for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                    {
+                        if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                        {
+                            count += args[0];
+                            GMInstance.AddMoney(args[0]);
+                            break;
+                        }
+                    }
+                }
+
+                Point(pointText, "+" + count + "$", Color.yellow);
+                break;
+
+            case 124:
+                try
+                {
+                    if (GMInstance.turn == 1 || GMInstance.HasGoldExperience())
+                    {
+                        if (GMInstance.HasBraveHeart(lastPos()) || GMInstance.battlefieldTrans.GetChild(0).GetComponent<TroopCardDisplay>().card.name == sargs[0])
+                        {
+                            GMInstance.AddMoney(args[0]);
+                            Point(pointText, "+" + args[0] + "$", Color.yellow);
+                            return;
+                        }
+                    }
+
+                    Point(pointText, "Nope!", Color.yellow);
+                }
+                catch
+                {
+                    Point(pointText, "Nope!", Color.yellow);
+                }
+                break;
+
+            case 125:
+                count = 1;
+
+                foreach(GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                {
+                    bool isCheck = false;
+
+                    for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                    {
+                        if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                        {
+                            isCheck = true;
+                            break;
+                        }
+                    }
+
+                    if (!isCheck)
+                    {
+                        GMInstance.totalAttack *= count;
+                        Point(pointText, "x" + count, Color.red);
+                        return;
+                    }
+                }
+
+                count = args[0];
+                GMInstance.totalAttack *= count;
+                Point(pointText, "x" + count, Color.red);
+
+                break;
+
+            case 126:
+                foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                {
+                    if (card.GetComponent<TroopCardDisplay>().name == sargs[0])
+                    {
+                        GMInstance.isEnd = true;
+                        Point(pointText, "Win!", Color.yellow);
+                        return;
+                    }
+                }
+
+                Point(pointText, "Nope!", Color.yellow);
+                break;
+
+            case 127:
+                count = 0;
+
+                try
+                {
+                    if (GMInstance.HasBraveHeart(args[1]) || GMInstance.battlefieldTrans.GetChild(args[1]).GetComponent<TroopCardDisplay>().card.name == sargs[0])
+                    {
+                        foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                        {
+                            if (card.GetComponent<TroopCardDisplay>().name == sargs[1])
+                            {
+                                GMInstance.totalDefense *= args[0];
+                                GMInstance.totalDefense *= args[2];
+                                Point(pointText, "Effect!", Color.yellow);
+                                return;
+                            }
+                        }
+
+                        count *= args[0];
+                        GMInstance.totalDefense *= args[0];
+                        Point(pointText, "x" + count, Color.blue);
+                        return;
+                    }
+                    else 
+                    {
+                        foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                        {
+                            if (card.GetComponent<TroopCardDisplay>().name == sargs[1])
+                            {
+                                count *= args[2];
+                                GMInstance.totalDefense *= args[2];
+                                Point(pointText, "x" + count, Color.blue);
+                                return;
+                            }
+                        }
+                    }
+
+                    Point(pointText, "Nope!", Color.yellow);
+                }
+                catch
+                {
+                    Point(pointText, "Nope!", Color.yellow);
+                }
+
+                break;
+
+            case 128:
+                GMInstance.totalAttack += args[0];
+                GMInstance.baseAttack += args[0];
+                Point(pointText, "Effect!", Color.yellow);
+                break;
+
+            case 129:
+                GMInstance.totalDefense += args[0];
+                GMInstance.baseDefense += args[0];
+                Point(pointText, "Effect!", Color.yellow);
+                break;
+
+            case 130:
+                count = 0;
+                count1 = 0;
+
+                foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                {
+                    for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                    {
+                        if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                        {
+                            count1++;
+                            break;
+                        }
+                    }
+                }
+
+                foreach (GameObject card in GMInstance.cardsInHandfield.ToArray())
+                {
+                    for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                    {
+                        if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                        {
+                            count1++;
+                            break;
+                        }
+                    }
+                }
+
+                foreach (GameObject card in GMInstance.cardsInCampfield.ToArray())
+                {
+                    for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                    {
+                        if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                        {
+                            count1++;
+                            break;
+                        }
+                    }
+                }
+
+                foreach (GameObject card in GMInstance.cardsInAltarfield.ToArray())
+                {
+                    for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                    {
+                        if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                        {
+                            count1++;
+                            break;
+                        }
+                    }
+                }
+
+                foreach (GameObject card in GMInstance.cardsInMagicfield.ToArray())
+                {
+                    for (int i = 2; i < card.GetComponent<MagicCardDisplay>().type.Length; i++)
+                    {
+                        if (card.GetComponent<MagicCardDisplay>().type[i] == sargs[0])
+                        {
+                            count1++;
+                            break;
+                        }
+                    }
+                }
+
+                foreach (GameObject card in GMInstance.cardsInIdolfield.ToArray())
+                {
+                    for (int i = 2; i < card.GetComponent<IdolCardDisplay>().type.Length; i++)
+                    {
+                        if (card.GetComponent<IdolCardDisplay>().type[i] == sargs[0])
+                        {
+                            count1++;
+                            break;
+                        }
+                    }
+                }
+
+                count1 /= args[1];
+                for (int i = 0; i < count1; i++)
+                {
+                    count += args[0];
+                    GMInstance.totalAttack += args[0];
+                }
+
+                Point(pointText, "+" + count, Color.red);
+                break;
+
+            case 131:
+                count = 1;
+
+                try
+                {
+                    foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                    {
+                        for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                        {
+                            if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                            {
+                                if (GMInstance.HasIceAge())
+                                {
+                                    count *= args[0];
+                                    GMInstance.totalAttack *= args[0];
+                                }
+                                if (card == xaihi)
+                                {
+                                    count *= args[0];
+                                    GMInstance.totalAttack *= args[0];
+                                }
+
+                                count *= args[0];
+                                GMInstance.totalAttack *= args[0];
+                                break;
+                            }
+                        }
+                    }
+                    
+                    Point(pointText, "x" + count, Color.red);
+                }
+                catch
+                {
+                    Point(pointText, "x" + count, Color.red);
+                }
+                break;
+
+            case 132:
+                count = 1;
+
+                try
+                {
+                    foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                    {
+                        for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                        {
+                            if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                            {
+                                if (GMInstance.HasVolcano())
+                                {
+                                    count *= args[0];
+                                    GMInstance.totalAttack *= args[0];
+                                }
+                                if (card == wulfgard)
+                                {
+                                    count *= args[0];
+                                    GMInstance.totalAttack *= args[0];
+                                }
+
+                                count *= args[0];
+                                GMInstance.totalAttack *= args[0];
+                                break;
+                            }
+                        }
+                    }
+
+                    Point(pointText, "x" + count, Color.red);
+                }
+                catch
+                {
+                    Point(pointText, "x" + count, Color.red);
+                }
+                break;
+
+            case 133:
+                if (GMInstance.cardsInSuperfield.Count < GMInstance.maxSuperInSuperfield)
+                {
+                    count = 0;
+
+                    for (int i = 0; i < 1; i++)
+                    {
+                        List<GameObject> tempList = new List<GameObject>();
+
+                        while (tempList.Count == 0 && count < 400)
+                        {
+                            count++;
+
+                            if (tempList.Count != 0)
+                            {
+                                tempList.RemoveRange(0, tempList.Count);
+                            }
+
+                            string rarity = GMInstance.GachaRate();
+
+                            foreach (Transform card in GMInstance.shopfieldTrans)
+                            {
+                                if (card.GetComponent<CardDisplay>().type[1] == rarity && !card.gameObject.activeSelf && card.GetComponent<CardDisplay>().type[0] == "Super")
+                                {
+                                    tempList.Add(card.gameObject);
+                                }
+                            }
+                        }
+
+                        int ran1 = Random.Range(0, tempList.Count);
+                        tempList[ran1].SetActive(true);
+                        tempList[ran1].GetComponent<SuperCardDisplay>().BuyCardFromMagic();
+                    }
+
+                    Point(pointText, "Effect!", Color.yellow);
+                    return;
+                }
+
+                Point(pointText, "Nope!", Color.yellow);
+                break;
+
+            case 134:
+                count = 1;
+                count += GMInstance.cardsInSuperfield.Count;
+                Point(pointText, "x" + count, Color.red);
+                break;
+
+            case 135:
+                count = 1;
+
+                try
+                {
+                    foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                    {
+                        for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                        {
+                            if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                            {
+                                if (GMInstance.HasSmashingGround())
+                                {
+                                    count *= args[0];
+                                    GMInstance.totalAttack *= args[0];
+                                }
+
+                                count *= args[0];
+                                GMInstance.totalAttack *= args[0];
+                                break;
+                            }
+                        }
+                    }
+
+                    Point(pointText, "x" + count, Color.red);
+                }
+                catch
+                {
+                    Point(pointText, "x" + count, Color.red);
+                }
+                break;
+
+            case 136:
+                count = 1;
+
+                try
+                {
+                    int endMinCount = 0;
+                    int a9eCount = 0;
+
+                    foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                    {
+                        for (int i = 2; i < card.GetComponent<TroopCardDisplay>().type.Length; i++)
+                        {
+                            if (card.GetComponent<TroopCardDisplay>().type[i] == sargs[0])
+                            {
+                                a9eCount++;
+
+                                if (card.GetComponent<TroopCardDisplay>().card.name == sargs[1] || card.GetComponent<TroopCardDisplay>().card.name == sargs[2])
+                                {
+                                    endMinCount++;
+                                }
+
+                                break;
+                            }
+                        }
+                    }
+
+                    print(endMinCount);
+                    print(a9eCount);
+                    mul = args[0] + endMinCount;
+                    for (int i = 0; i < a9eCount; i++)
+                    {
+                        count *= mul;
+                        GMInstance.totalAttack *= mul;
+                    }
+
+                    Point(pointText, "x" + count, Color.red);
+                }
+                catch
+                {
+                    Point(pointText, "x" + count, Color.red);
+                }
+                break;
+
+            case 137:
+                count = 1;
+                bool isEffect = true;
+                bool isNonEffect = true;
+
+                foreach (GameObject card in GMInstance.cardsInBattlefield.ToArray())
+                {
+                    if (card.GetComponent<TroopCardDisplay>().card.effect == "None")
+                    {
+                        isEffect = false;
+                    }
+                    else
+                    {
+                        isNonEffect = false;
+                    }
+                }
+
+                if (isNonEffect && isEffect)
+                {
+                    count *= args[0];
+                    count *= args[1];
+                    GMInstance.totalAttack *= args[0];
+                    GMInstance.totalAttack *= args[1];
+                    Point(pointText, "Effect!", Color.yellow);
+                    return;
+                }
+                else if (isNonEffect)
+                {
+                    count *= args[0];
+                    GMInstance.totalAttack *= args[0];
+                    Point(pointText, "x" + count, Color.red);
+                    return;
+                }
+                else if (isEffect)
+                {
+                    count *= args[1];
+                    GMInstance.totalAttack *= args[1];
+                    Point(pointText, "x" + count, Color.red);
+                    return;
+                }
+
+                Point(pointText, "Nope!", Color.yellow);
+                break;
+
+            case 138:
+                for (int i = 0; i < GMInstance.magicfieldTrans.childCount; i++)
+                {
+                    if (GMInstance.magicfieldTrans.GetChild(i).gameObject == above)
+                    {
+                        above.GetComponent<MagicCardDisplay>().LateEffect();
+                        Point(pointText, "Effect!", Color.yellow);
+                        return;
+                    }
+                }
+
+                Point(pointText, "Nope!", Color.yellow);
+                break;
+
+            case 139:
+                for (int i = 0; i < GMInstance.magicfieldTrans.childCount; i++)
+                {
+                    if (GMInstance.magicfieldTrans.GetChild(i).gameObject == superPlay)
+                    {
+                        superPlay.GetComponent<MagicCardDisplay>().LateEffect();
+                        Point(pointText, "Effect!", Color.yellow);
+                        return;
+                    }
+                }
+
+                Point(pointText, "Nope!", Color.yellow);
                 break;
         }
     }

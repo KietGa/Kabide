@@ -25,5 +25,5 @@ MonoBehaviour:
   effectCode: ffffffff
   args: 
   sargs: []
-  attack: 800
-  defense: 800
+  attack: 1000
+  defense: 1000

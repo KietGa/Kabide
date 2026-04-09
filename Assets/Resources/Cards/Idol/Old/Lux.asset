@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Lux
   art: {fileID: 21300000, guid: 2eaf62f3301d53e4d86252bb0745d472, type: 3}
-  cost: 20
+  cost: 15
   type:
   - Idol
   - Rare
-  - HSR
+  - LOL
   effect: +30$
   effectType: 00000000
   effectCode: 0c000000

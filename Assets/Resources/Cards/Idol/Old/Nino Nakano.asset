@@ -19,8 +19,8 @@ MonoBehaviour:
   - Idol
   - Uncommon
   - Gotoubun
-  effect: +30 Base ATK & +30 Base DEF
+  effect: +40 Base ATK & +40 Base DEF
   effectType: 00000000
   effectCode: 08000000
-  args: 1e0000001e000000
+  args: 2800000028000000
   sargs: []

@@ -19,8 +19,8 @@ MonoBehaviour:
   - Idol
   - Mythic
   - HI3
-  effect: +260 Base ATK
+  effect: +300 Base ATK
   effectType: 00000000
   effectCode: 00000000
-  args: 04010000
+  args: 2c010000
   sargs: []

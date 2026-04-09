@@ -11,6 +11,7 @@ public class SuperCardDisplay : CardDisplay
     public SuperCard card;
     public Button sellButton;
     public bool isUseOutside;
+    public bool isCantUse;
 
     public override void Awake()
     {
@@ -20,8 +21,6 @@ public class SuperCardDisplay : CardDisplay
             Init();
         }
         GetComponent<Button>().onClick.AddListener(ToSuperfield);
-
-        
     }
 
     public override void Init()
@@ -31,6 +30,7 @@ public class SuperCardDisplay : CardDisplay
         cost = card.cost;
         nameText.text = card.name;
         isUseOutside = card.isUseOutside;
+        isCantUse = card.isCantUse;
         typeText.text = card.type[0];
         for (int i = 2; i < type.Length; i++)
         {
@@ -130,6 +130,30 @@ public class SuperCardDisplay : CardDisplay
         }
     }
 
+    public void SellEffect()
+    {
+        for (int i = 0; i < card.effectType.Length; i++)
+        {
+            if (card.effectType[i] == 10)
+            {
+                EffectManager.EMInstance.SellEffect(card.effectCode[i], card.args, card.sargs);
+                break;
+            }
+        }
+    }
+
+    public void StartEffect()
+    {
+        for (int i = 0; i < card.effectType.Length; i++)
+        {
+            if (card.effectType[i] == 3)
+            {
+                EffectManager.EMInstance.StartEffect(card.effectCode[i], card.args, card.sargs);
+                break;
+            }
+        }
+    }
+
     public void ToSuperfield()
     {
         button.onClick.RemoveAllListeners();
@@ -151,7 +175,11 @@ public class SuperCardDisplay : CardDisplay
                 button.GetComponentInChildren<TextMeshProUGUI>().text = "Use";
                 button.onClick.AddListener(UseCard);
 
-                if (card.effectCode[0] == 11 && (GMInstance.cardsInBattlefield.Count > card.args[0] || GMInstance.cardsInBattlefield.Count <= 0))
+                if (isCantUse)
+                {
+                    button.interactable = false;
+                }
+                else if (card.effectCode[0] == 11 && (GMInstance.cardsInBattlefield.Count > card.args[0] || GMInstance.cardsInBattlefield.Count <= 0))
                 {
                     button.interactable = false;
                 }
@@ -172,7 +200,17 @@ public class SuperCardDisplay : CardDisplay
                     button.interactable = true;
                 }
 
-                sellButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sell\n" + cost / 2 + "$";
+                int sell = cost / 2;
+                if (gameObject == EffectManager.EMInstance.valleyStock)
+                {
+                    sell = GMInstance.valleyStockValue;
+                }
+                else if (gameObject == EffectManager.EMInstance.wulingStock)
+                {
+                    sell = GMInstance.wulingStockValue;
+                }
+
+                sellButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sell\n" + sell + "$";
                 sellButton.onClick.AddListener(SellCard);
 
                 button.gameObject.SetActive(true);
@@ -209,7 +247,11 @@ public class SuperCardDisplay : CardDisplay
 
     private void UseCard()
     {
-        if (card.effectCode[0] == 11 && (GMInstance.cardsInBattlefield.Count > card.args[0] || GMInstance.cardsInBattlefield.Count <= 0))
+        if (isCantUse)
+        {
+            button.interactable = false;
+        }
+        else if (card.effectCode[0] == 11 && (GMInstance.cardsInBattlefield.Count > card.args[0] || GMInstance.cardsInBattlefield.Count <= 0))
         {
             button.interactable = false;
         }
@@ -229,7 +271,7 @@ public class SuperCardDisplay : CardDisplay
         {
             priceText.transform.parent.gameObject.SetActive(true);
             QuickEffect();
-            GameManager.GMInstance.CoutingStatus();
+            GMInstance.CoutingStatus();
             GMInstance.CardFromSuperfieldToShopfield(gameObject);
             sellButton.gameObject.SetActive(false);
             button.gameObject.SetActive(false);
@@ -238,9 +280,29 @@ public class SuperCardDisplay : CardDisplay
 
     private void SellCard()
     {
+        int sell = cost / 2;
+        if (gameObject == EffectManager.EMInstance.valleyStock)
+        {
+            sell = GMInstance.valleyStockValue;
+        }
+        else if (gameObject == EffectManager.EMInstance.wulingStock)
+        {
+            sell = GMInstance.wulingStockValue;
+        }
+
+        SellEffect();
         priceText.transform.parent.gameObject.SetActive(true);
         GMInstance.CardFromSuperfieldToShopfield(gameObject);
-        GameManager.GMInstance.AddMoney(cost / 2);
+        GameManager.GMInstance.AddMoney(sell);
+        if (gameObject == EffectManager.EMInstance.valleyStock)
+        {
+            GMInstance.valleyStockValue = 0;
+        }
+        else if (gameObject == EffectManager.EMInstance.wulingStock)
+        {
+            GMInstance.wulingStockValue = 0;
+        }
+
         AudioManager.AMInstance.PlayAudio(3);
         button.gameObject.SetActive(false);
         sellButton.gameObject.SetActive(false);
